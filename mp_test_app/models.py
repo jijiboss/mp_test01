@@ -23,7 +23,7 @@ class carriers(models.Model):
     carrier_name = models.CharField(max_length = 128)
 
     def __str__(self):
-        return self.carrier_id
+        return '(' + str(self.carrier_id) + ')' + str(self.scac_mc)
 
 
 class truck_stop(models.Model):
@@ -54,8 +54,8 @@ class mp_Load(models.Model):
     partner_id = models.IntegerField() #my MPID for notifications and stuff
     id_number = models.IntegerField(primary_key = True) #load ID
 #    carrier_name = models.TextField() #may not need this instead use te foreign key carrier_id
-    carrier_name = models.ForeignKey(carriers) #over ID because users would not know the ID
-#    carrier_id = models.ForeignKey(carriers) #carrier ID to looku pagainst the carriers table
+#    carrier_name = models.ForeignKey(carriers) #over ID because users would not know the ID
+    carrier_id = models.ForeignKey(carriers) #carrier ID to looku pagainst the carriers table
 #    last_stop_event_completed = models.CharField(max_length = 64, blank=True, default='')
     last_stop_event_completed = models.CharField(max_length = 64, blank=True)
     stop_id = models.CharField(max_length = 12) #this is not part of the truck_stop table
