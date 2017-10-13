@@ -30,5 +30,5 @@ class carriersAdmin(ImportExportModelAdmin):
 @admin.register(mp_Load)
 class mp_LoadAdmin(ImportExportModelAdmin):
 #    list_display = ('number', 'carrier_name', 'stop_name')
-    list_display = ('number', 'carrier_id', 'stop_name')
+#    list_display = ('number', 'carrier_id', 'stop_name')
     resource_class = Mp_LoadResource #Used for import-export

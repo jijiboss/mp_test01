@@ -26,17 +26,16 @@ class Mp_LoadResource(resources.ModelResource):
         model = mp_Load
         skip_unchanged = True
         import_id_fields = (
+            'number', # GPS/Cell number to track by
+            'track_start_date_time', # When to start tracking in format YYYY-MM-DD HH:MM
+            'track_start_date_time_TZ', # Timezone for track_start_date_time
+            'track_duration_hours', # How long to track for
+            'track_interval_minutes', #Frequency for locatio update
+            'partner_id', # My MPID, used for notification
             'id_number', # Our load identifier
         )
 
-        fields = (
-#            'number', # GPS/Cell number to track by
-#            'track_start_date_time', # When to start tracking in format YYYY-MM-DD HH:MM
-#            'track_start_date_time_TZ', # Timezone for track_start_date_time
-#            'track_duration_hours', # How long to track for
-#            'track_interval_minutes', #Frequency for locatio update
-#            'partner_id', # My MPID, used for notification
-            'id_number', # Our load identifier
+#        import_id_fields = (
 #            'carrier_name', # Carrier name
 #            'carrier_id', # Our internal name for the carrier
 #            'last_stop_event_completed', # Allows to report "Arrived" oir "Departed"
@@ -50,16 +49,16 @@ class Mp_LoadResource(resources.ModelResource):
 #            'stop_notes', # Notes on the Stop
 #            'email_updates_to',
 #            'load_notes'
-        )
+#        )
 
-        import_order = (
+#        import_order = (
 #            'number', # GPS/Cell number to track by
 #            'track_start_date_time', # When to start tracking in format YYYY-MM-DD HH:MM
 #            'track_start_date_time_TZ', # Timezone for track_start_date_time
 #            'track_duration_hours', # How long to track for
 #            'track_interval_minutes', #Frequency for locatio update
 #            'partner_id', # My MPID, used for notification
-            'id_number', # Our load identifier
+#            'id_number', # Our load identifier
 #            'carrier_name', # Carrier name
 #            'carrier_id', # Our internal name for the carrier
 #            'last_stop_event_completed', # Allows to report "Arrived" oir "Departed"
@@ -73,4 +72,4 @@ class Mp_LoadResource(resources.ModelResource):
 #            'stop_notes', # Notes on the Stop
 #            'email_updates_to',
 #            'load_notes'
-        )
+#        )
